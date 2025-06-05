@@ -1,4 +1,4 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>  
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -36,6 +36,26 @@
       border-radius: 10px;
     }
 
+    .thumbnails {
+      display: flex;
+      gap: 10px;
+      margin-top: 15px;
+    }
+
+    .thumbnail {
+      width: 70px;
+      height: 70px;
+      border-radius: 8px;
+      object-fit: cover;
+      cursor: pointer;
+      border: 2px solid transparent;
+      transition: border 0.3s ease;
+    }
+
+    .thumbnail:hover {
+      border: 2px solid #333;
+    }
+
     .badge {
       background-color: #333;
       color: white;
@@ -52,7 +72,7 @@
     }
 
     .rating {
-      color: #ffc107; /* OR */
+      color: #ffc107;
       font-size: 1.2rem;
     }
 
@@ -104,7 +124,7 @@
     }
 
     .stock-warning {
-      color: red;
+      color: #555; /* Anciennement rouge */
       font-size: 0.85rem;
       margin-left: 8px;
     }
@@ -145,7 +165,12 @@
   <div class="container">
     <!-- Left Image Column -->
     <div class="left-column">
-      <img src="prod1.jpeg" alt="Sweatshirt" class="main-image" />
+      <img src="prod1.jpeg" alt="Sweatshirt" class="main-image" id="mainProductImage" />
+      <div class="thumbnails">
+        <img src="prod1.jpeg" alt="Thumbnail 1" class="thumbnail" onclick="changeMainImage(this.src)">
+        <img src="prod1.jpeg" alt="Thumbnail 2" class="thumbnail" onclick="changeMainImage(this.src)">
+        <img src="prod1.jpeg" alt="Thumbnail 3" class="thumbnail" onclick="changeMainImage(this.src)">
+      </div>
       <div class="badge">New Arrival</div>
     </div>
 
@@ -184,15 +209,19 @@
   </div>
 
   <script>
-    // Gestion des boutons de taille
+    // Changement de taille sélectionnée
     const sizeButtons = document.querySelectorAll('.size-options button');
-
     sizeButtons.forEach(button => {
       button.addEventListener('click', () => {
         sizeButtons.forEach(btn => btn.classList.remove('selected'));
         button.classList.add('selected');
       });
     });
+
+    // Changement de l'image principale
+    function changeMainImage(src) {
+      document.getElementById('mainProductImage').src = src;
+    }
   </script>
 </body>
 </html>
