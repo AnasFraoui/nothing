@@ -1,0 +1,198 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Detail - Sweatshirt</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #f2f2f2;
+      color: #222;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+      display: flex;
+      gap: 60px;
+      flex-wrap: wrap;
+    }
+
+    .left-column, .right-column {
+      flex: 1;
+      min-width: 300px;
+    }
+
+    .main-image {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .badge {
+      background-color: #333;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      display: inline-block;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .rating {
+      color: #ffc107; /* OR */
+      font-size: 1.2rem;
+    }
+
+    .rating span {
+      color: #555;
+      font-size: 0.9rem;
+    }
+
+    .price {
+      color: #111;
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin: 15px 0;
+    }
+
+    .section {
+      margin-top: 25px;
+    }
+
+    .section label {
+      font-weight: bold;
+    }
+
+    .size-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 10px;
+    }
+
+    .size-options button {
+      width: 50px;
+      height: 40px;
+      border: 1px solid #666;
+      border-radius: 5px;
+      background: white;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+    }
+
+    .size-options button:hover {
+      background-color: #eee;
+    }
+
+    .size-options .selected {
+      background-color: #111;
+      color: white;
+    }
+
+    .stock-warning {
+      color: red;
+      font-size: 0.85rem;
+      margin-left: 8px;
+    }
+
+    .description {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .actions {
+      margin-top: 30px;
+    }
+
+    .actions button {
+      padding: 12px 25px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      background-color: #111;
+      color: white;
+      transition: background 0.3s ease;
+    }
+
+    .actions button:hover {
+      background-color: #444;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Left Image Column -->
+    <div class="left-column">
+      <img src="prod1.jpeg" alt="Sweatshirt" class="main-image" />
+      <div class="badge">New Arrival</div>
+    </div>
+
+    <!-- Right Info Column -->
+    <div class="right-column">
+      <h3>New Relaxed Fit Sweatshirt Vol.</h3>
+      <div class="rating">
+        &#9733;&#9733;&#9733;&#9733;&#189;
+        <span>(4.5) • 623 reviews • 1,919 Sold</span>
+      </div>
+      <div class="price">$899.00</div>
+
+      <div class="section">
+        <label>Select Size <span class="stock-warning">Only 5 stocks left!</span></label>
+        <div class="size-options">
+          <button>XS</button>
+          <button class="selected">S</button>
+          <button>M</button>
+          <button>L</button>
+          <button>XL</button>
+        </div>
+      </div>
+
+      <div class="section description">
+        <h4>Description</h4>
+        <p>
+          T-shirt in soft cotton fabric with a printed retro van at the front and a spiral pattern at the back. Regular fit with short sleeves 
+          and a classic round neckline. Smooth and comfortable texture, ideal for everyday wear.
+        </p>
+      </div>
+
+      <div class="actions">
+        <button class="btn-primary">Buy Now</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Gestion des boutons de taille
+    const sizeButtons = document.querySelectorAll('.size-options button');
+
+    sizeButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        sizeButtons.forEach(btn => btn.classList.remove('selected'));
+        button.classList.add('selected');
+      });
+    });
+  </script>
+</body>
+</html>
